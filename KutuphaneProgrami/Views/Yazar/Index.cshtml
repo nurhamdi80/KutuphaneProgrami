@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Yazarlar";
+}
+@using KutuphaneProgrami.Data.Model;
+@model List<Yazar>
+
+<h2>YAZARLAR</h2>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>İsim</th>
+            <th>Kitap Adeti</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var yzr in Model)
+        {
+            <tr>
+                <td>@yzr.Ad</td>
+                <td>@yzr.Kitaplar.Count()</td>
+                <td><Button class="yazarguncelle btn btn-custom" value="@yzr.Id">Güncelle</Button></td>
+                <td><Button class="yazarsil btn btn-danger" value="@yzr.Id">Sil</Button></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>İsim</th>
+            <th>Kitap Adeti</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </tfoot>
+</table>
+
